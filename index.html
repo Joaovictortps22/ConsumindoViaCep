@@ -6,9 +6,23 @@
     <title>Consumindo API ViaCep</title>
 </head>
 <body>
-    
+
+    <input type="text" id="cepInput">
+    <input type="button" value="Preencher" onclick="carregaCep()">
+
+    <script>
+      function carregaCep(){  
+        var CEP = document.getElementById("cepInput").value
+
+        console.log(window.fetch);
+        fetch(`https://viacep.com.br/ws/${CEP}/json/`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+            });
+      } 
+    </script>
 </body>
-<script>
-    
-</script>
 </html>
